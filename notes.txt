@@ -1,6 +1,0 @@
-https://api.logicahealth.org/elsytest/open/Patient?name:contains=Adams&_sort:asc=family
-//this endpoint here will look for patients with 'Adams' in their name and sort them ascendedly.
-
-
-https://api.logicahealth.org/elsytest/open/Condition?subject=Patient%2Fsmart-1288992 
-//working patient condition query using MRN for patients
