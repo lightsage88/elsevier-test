@@ -1,23 +1,6 @@
 import styled from "styled-components";
+import SortableConditionTable from "../SortableConditionTable/SortableConditionTable";
 //#region StyledComponents
-const StyledListItem = styled.li`
-  transition: all 1s;
-  display: flex;
-  flex-direction: column;
-  margin: 1.5rem;
-  border: solid 3px blue;
-  background: beige;
-  padding: 1rem;
-  &:hover {
-    cursor: pointer;
-    border-color: red;
-    background: ghostwhite;
-    transform: scale(1.1);
-    a {
-      color: red;
-    }
-  }
-`;
 const StyledBasicPatientDetailsDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,29 +20,6 @@ const PatientDetails = (props) => {
   const { conditionList } = props;
   //#endregion
   //#region JSX
-  /**
-   * This use of 'map' on the 'conditionList' variable returns one or more list-items that will be used to populate a list element further
-   * down in the component.
-   */
-  const conditions = conditionList.map((el, key) => {
-    return (
-      <StyledListItem>
-        <strong>
-          Condition Name:{" "}
-          <a
-            href={`https://pubmed.ncbi.nlm.nih.gov/?term=${el.name}`}
-            target="_"
-          >
-            {el.name}
-          </a>
-        </strong>
-        <span>
-          <strong>First Noticed: </strong>{" "}
-          {new Date(el.onsetDateTime).toLocaleDateString("en-US")}
-        </span>
-      </StyledListItem>
-    );
-  });
   return (
     <div>
       <h2>Patient Details:</h2>
@@ -72,7 +32,7 @@ const PatientDetails = (props) => {
       </StyledBasicPatientDetailsDiv>
       <div id="patient-condition-list">
         <h2>Conditions:</h2>
-        <ul>{conditions}</ul>
+        <SortableConditionTable conditionList={conditionList}/>
       </div>
     </div>
   );

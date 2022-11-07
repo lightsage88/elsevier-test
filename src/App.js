@@ -47,7 +47,6 @@ function App() {
    * @param {EventObject} e 
    */
   const initiateSearch = (e) => {
-    console.log("initiate serach goingo n");
     setSearchOn(true);
   };
   /**
@@ -55,7 +54,6 @@ function App() {
    * It is passed as a prop to 'PatientInput'.
    */
   const onHandleClearButton = () => {
-    console.log("OHCB running");
     setInputValue("");
     setSelectedPatientGeneralData({});
     setSelectedPatientMRN("");
